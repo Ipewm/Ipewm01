@@ -1,2 +1,175 @@
 # Ipewm01
-Ipewm on testi wm joka on toteutettu python -ohjelmoinnilla
+
+ipewm.py on testi wm joka on rakennettu Debian-käyttöjärjetelmään, tämä on testattu LXDE-työpöytä sovelluksilla.
+
+ICCCM-standardeja on käytössä:
+protocol
+wm-delete
+wm-name
+
+errorhandle ei ole käytössä 
+
+johtopäätös:
+useammat sovellukset toimivat myös ilman ICCCM-standardeja, mutta jos haluaa paremmin toimivan wm:n niin on hyvä ottaa kaikki standarit mukaan.
+
+toiminta:
+
+kursori on kehyksellä -> väri muuttuu siniseksi
+
+sovellus päällimmäiseksi -> button1 kehys
+siirto -> button1 kehyksen yläosa
+muuta kokoa -> button3 kehyksen oikeaosa, alaosa
+otsikko-ikkuna -> button1 -> kehyksen vasenosa
+
+sulje sovellus:
+
+sovelluksen oma sulkeminen
+otsikko-ikkunan punainen ruutu
+
+------
+
+mitä tarvitset:
+
+Debian-käyttöjärjestelmä, esim Debian11
+Työpöytäsovelluksen (applikaatiot), esim LXDE
+
+python3-xlib
+
+testaa onko asennettu päätteellä:
+
+-> python3 -m pydoc Xlib
+
+jos error:
+No Python documentation found for 'Xlib'.
+Use help() to get the interactive help utility.
+Use help(str) for help on the str class.
+
+kirjaudu su:
+-> apt install python3-xlib
+
+mutta jos ei erroria, niin älä asenna uudestaan
+
+tai synaptic-pakentinhallinnalla:
+
+avaa sovellus
+kirjoita hakusanaksi:
+
+python3-xlib
+
+asenna moduli jos ei ole asennettu
+
+-----
+
+testi päätteen kautta:
+
+lisää Home/{käyttäjä} hakemistoon hakemisto 
+ipewmpython 
+
+ja tallenna sinne ipewm.py 
+
+siirry hakemistoon:
+
+/usr/share/xsessions
+
+avaa pääte ja kirjaudu su (superuser)
+-> nano ipewmpython.desktop
+-> kopioi seuraavat rivit:
+
+[Desktop Entry]
+Name=IpewmPython
+Comment=my python window manager (without a session manager)
+Type=Application
+#Terminal=True
+Exec=lxterminal            
+#Exec=/home/{käyttäjä}/bin/ipewmpyt 
+
+TryExec=/usr/bin/openbox-session
+#Icon=/usr/share/icons/Papirus/32x32/apps/bluegriffon.svg
+
+pääte komennot:
+
+-> cd ipewnpython
+-> python3 ipewm.py
+
+------
+
+testi ilman päätettä:
+
+lisää Home/{käyttäjä} hakemistoon hakemisto:
+ipewmpython 
+
+ja tallenna sinne ipewm.py 
+
+bin 
+
+lisää tiedosto bin hakemistoon:
+ipewmpyt
+
+kopioi rivit sinne:
+
+#!/bin/sh
+
+cd /home/{käyttäjä}/ipewmpython
+
+exec python3 ipewm.py
+
+anna sille oikeudet:
+
+chmod 755 ipewmpyt
+
+lisää .bashrc tiedostoon
+
+#new bin direction add $PATH
+PATH=$PATH:/home/{käyttäjä}/bin
+
+siirry hakemistoon:
+
+/usr/share/xsessions
+
+avaa pääte ja kirjaudu su (superuser)
+nano ipewmpython.desktop
+
+-> kopioi seuraavat rivit:
+
+[Desktop Entry]
+Name=IpewmPython
+Comment=my python window manager (without a session manager)
+Type=Application
+#Terminal=True
+#Exec=lxterminal
+Exec=/home/{käyttäjä}/bin/ipewmpyt            
+
+TryExec=/usr/bin/openbox-session
+#Icon=/usr/share/icons/Papirus/32x32/apps/bluegriffon.svg
+
+----
+tiedostojen poistot:
+
+siirry hakemistoon:
+
+/usr/share/xsessions
+
+avaa pääte ja kirjaudu su (superuser):
+rm ipewmpython.desktop
+
+hakemistot ipewmpython 
+
+kommentoi rivi .bashrc tiedostoon
+
+#new bin direction add $PATH
+#PATH=$PATH:/home/{käyttäjä}/bin
+
+hakemistot ipewmpython, bin -> siirrä roskakoriin
+
+--------------
+
+
+
+
+
+
+
+
+
+
+
