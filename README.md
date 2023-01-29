@@ -26,6 +26,8 @@ sulje sovellus:
 sovelluksen oma sulkeminen
 otsikko-ikkunan punainen ruutu
 
+asennus ja testi ohjeet readme tiedostossa
+
 ------
 
 
