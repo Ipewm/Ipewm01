@@ -17,8 +17,11 @@ toiminta:
 kursori on kehyksellä -> väri muuttuu siniseksi
 
 sovellus päällimmäiseksi -> button1 kehys
+
 siirto -> button1 kehyksen yläosa
+
 muuta kokoa -> button3 kehyksen oikeaosa, alaosa
+
 otsikko-ikkuna -> button1 -> kehyksen vasenosa
 
 sulje sovellus:
