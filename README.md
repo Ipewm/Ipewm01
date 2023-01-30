@@ -33,6 +33,12 @@ asennus ja testi ohjeet readme tiedostossa
 
 ------
 
+video asennuksesta ja testauksesta:
+
+https://youtu.be/tKxvvjlL7lI
+
+------
+
 
 
 
